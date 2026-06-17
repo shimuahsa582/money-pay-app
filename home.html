@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font aswame cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <!-- tailwind css link -->
+    <link rel="stylesheet" href="./css/tailwind.config.css" />
+    <!-- css link -->
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <!-- top section -->
+    <section id="top">
+        <div id="top-section" class="w-[500px] mx-auto flex justify-between items-center mt-5 bg-[#ffff] shadow">
+            <div class="right-section flex">
+                <img src="assets/Group.png" alt="group img" class="h-[50px]" />
+                <div class="ml-4">
+                    <!-- added total amount number id is add-total-amount -->
+                    <h3 class="font-bold text-lg">
+                        $ <span id="add-total-amount">45000</span>
+                    </h3>
+                    <p class="text-gray-600">Available Balance</p>
+                </div>
+            </div>
+            <div class="right-section">
+                <button type="submit" class="btn text-gray-600">
+                    <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>LogOut
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- top section end-->
+    <!-- welcome section -->
+    <section id="welcome-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
+        <h2 class="font-bold text-2xl my-1.5">🔥 Welcome to Payooo!</h2>
+        <p class="w-[402px] text-gray-600">
+            Enjoy easy and convenient financial services with us. Cashout charge is
+            low and
+        </p>
+    </section>
+    <!-- welcome section end-->
+    <!-- card section -->
+    <section id="card-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
+        <div class="card-description">
+            <div id="addMoney-button"
+                class="card-1 w-[123px] h-[90px] rounded-1xl border-[1px solid gray] shadow mx-auto">
+                <img src="assets/purse1.png" alt="" />
+                <p>Add Money</p>
+            </div>
+
+            <div id="cashOut-button" class="card-2 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+                <img src="assets/send1.png" alt="" />
+                <p>Cashout</p>
+            </div>
+
+            <div class="card-3 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+                <img src="assets/money1.png" alt="" />
+                <p>Transfer Money</p>
+            </div>
+
+            <div class="card-4 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+                <img src="assets/bonus1.png" alt="" />
+                <p>Get Bonus</p>
+            </div>
+
+            <div class="card-5 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+                <img src="assets/wallet1.png" alt="" />
+                <p>Pay Bill</p>
+            </div>
+
+            <div class="card-6 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+                <img src="assets/transaction1.png" alt="" />
+                <p>Transactions</p>
+            </div>
+        </div>
+    </section>
+    <!-- card section end -->
+
+    <!-- add money section -->
+    <section id="add-money-section" class="w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        <h1 class="text-left ml-3 text-2xl">Add Money</h1>
+        <div id="add-money-info" class="flex flex-col justify-center items-center">
+            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+                <div id="bank-info">
+                    <select class="select bg-[#F4F5F7] rounded-4xl mt-2">
+                        <h1>Select A Bank</h1>
+                        <option>Pick A Bank</option>
+                        <option>Brack Bank</option>
+                        <option>Duch Bangla Bank</option>
+                        <option>Islami Bank</option>
+                    </select>
+                </div>
+                <div id="bank-account-number" class="mt-4">
+                    <label for="account-number" class="ml-2">Bank Account Number</label>
+                    <input type="text" placeholder="Enter 11 digit account number" id="account-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="amount-witdraw-number" class="mt-4">
+                    <label for="add-withdraw-number" class="ml-2">Amount to Add</label>
+                    <input type="number" placeholder="Add Amount to withdraw" id="add-withdraw-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="account-pin-number" class="mt-4">
+                    <label for="pin-number" class="ml-2">Pin Number</label>
+                    <input type="password" placeholder="Enter 4 digit pin number" id="pin-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <!-- login button -->
+                <button id="add-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                    Add Money
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-- add money section end  -->
+
+    <!-- cash out section  start-->
+    <section id="cash-out-section" style="display: none;" class="w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        <h1 class="text-left ml-3 text-2xl">Cash Out</h1>
+        <div id="cash-out-section" class="flex flex-col justify-center items-center">
+            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+
+                <div id="agent-account-number" class="mt-4">
+                    <label for="account-number" class="ml-2">Agent Number</label>
+                    <input type="text" placeholder="Enter 11 digit account number" id="cashout-agent-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="amount-witdraw-number" class="mt-4">
+                    <label for="add-withdraw-number" class="ml-2">Amount</label>
+                    <input type="number" placeholder="Enter Amount to Withdraw" id="cashout-withdraw-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="account-pin-number" class="mt-4">
+                    <label for="pin-number" class="ml-2">Pin Number</label>
+                    <input type="password" placeholder="Enter 4 digit pin number" id="cashout-pin-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <!-- login button -->
+                <button id="withdraw-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                    Withdraw Money
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-- cash out section end  -->
+
+    <!-- js link -->
+    <script src="js/home.js"></script>
+</body>
+
+</html>

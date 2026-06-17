@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* index.html file ar login section */
+#loginInfo {
+    background: url(../assets/Logo-full.png) no-repeat cover center;
+
+}
+
+/* home.html file ar  card section */
+.card-description {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    max-width: 500px;
+    row-gap: 30px;
+    margin-top: 40px;
+
+}

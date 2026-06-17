@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile App</title>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <section id="login-section">
+
+        <div id="loginInfo" class="flex flex-col justify-center items-center h-screen">
+            <div
+                class="login-img w-[300px] h-[150px] bg-[url(./assets/bg.png)] bg-cover flex justify-center items-center">
+                <img src="assets/Group.png" alt="">
+            </div>
+            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+                <div class="mt-4">
+                    <label for="mobile-number" class="ml-2">Mobile Number</label>
+                    <input type="text" placeholder="Enter Your Number" id="mobile-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div class="mt-4">
+                    <label for="digit-pin-number" class="ml-2">4 Digit Pin</label>
+                    <input type="number" placeholder="Enter 4 Digit" id="digit-pin-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <!-- login button -->
+                <button id="login-button" class="btn btn-primary w-80 mt-5 rounded-4xl">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- js link -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
