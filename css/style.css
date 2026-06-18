@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+    margin-top: 50px;
+}
+
 /* index.html file ar login section */
 #loginInfo {
     background: url(../assets/Logo-full.png) no-repeat cover center;
@@ -10,9 +14,11 @@
 .card-description {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: space-between;
     align-items: center;
     max-width: 500px;
     row-gap: 30px;
-    margin-top: 40px;
+    margin: 40px 0px 0px 15px;
 
 }

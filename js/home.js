@@ -1,4 +1,4 @@
-// function get input values 
+// function get input values
 function getInputValueNumber(id) {
     const inputField = document.getElementById(id);
     const inputFeildValue = inputField.value;
@@ -6,15 +6,29 @@ function getInputValueNumber(id) {
     return inputFieldValueNumber;
 }
 
-// function get input value without parsInt number 
-function getValueWithoutParsIntNumber(IdWithoutParsIntNumber) {
-    const inputTextWithoutNumber = document.getElementById(IdWithoutParsIntNumber);
+// function get input value without parsInt number
+function getValueWithoutParsIntNumber(id) {
+    const inputTextWithoutNumber = document.getElementById(id);
     const inputTextFeildValue = inputTextWithoutNumber.value;
     return inputTextFeildValue;
 }
 
-// add money section all function start 
-// set add money pin number 
+// function get innerText value
+function getInnerTextValue(id) {
+    const element = document.getElementById(id);
+    const elementValue = element.innerText;
+    const elementValueNumber = parseInt(elementValue);
+    return elementValueNumber;
+}
+
+// functio to set innerText 
+function setInnerText(value) {
+    const availableBlanceAmount = document.getElementById("available-amount");
+    availableBlanceAmount.innerText = value;
+}
+
+// add money section all function start
+// set add money pin number
 const validPinNumber = 1234;
 // add event listner handler
 document
@@ -32,61 +46,66 @@ document
             alert("please enter a valid account number must be 11 digit");
             return;
         }
-        // cheek pin number 
+        // cheek pin number
         if (pinNumber !== validPinNumber) {
             alert("Enter your pin number 1234 otherwise this code not excicute");
             return;
         }
-        // access available-amount id
-        const addTotalAmount = parseInt(
-            document.getElementById("available-amount").innerText
-        );
-        //  sum to the total amount and bank withdraw amount
-        const newTotalAmountSum = addWitdrawNumber + addTotalAmount;
-        document.getElementById("available-amount").innerText = newTotalAmountSum;
+        // call the function available-amount id
+        const addTotalAvailableAmount = getInnerTextValue("available-amount");
+        //  sum to the avaible total amount and bank withdraw amount
+        const newTotalAvailableAmount = addWitdrawNumber + addTotalAvailableAmount;
+        setInnerText(newTotalAvailableAmount);
     });
 // add money section all function end
 
 //toggle feature add money and cash out section
-// add money button 
-document.getElementById('addMoney-button').addEventListener('click', function () {
-    document.getElementById('cash-out-section').style.display = 'none';
-    document.getElementById('add-money-section').style.display = 'block';
-})
+// add money button
+document
+    .getElementById("addMoney-button")
+    .addEventListener("click", function () {
+        document.getElementById("cash-out-section").style.display = "none";
+        document.getElementById("add-money-section").style.display = "block";
+    });
 // cash out button
-document.getElementById('cashOut-button').addEventListener('click', function () {
-    document.getElementById('cash-out-section').style.display = 'block';
-    document.getElementById('add-money-section').style.display = 'none';
-})
+document
+    .getElementById("cashOut-button")
+    .addEventListener("click", function () {
+        document.getElementById("cash-out-section").style.display = "block";
+        document.getElementById("add-money-section").style.display = "none";
+    });
 
-// cash out section start 
+// cash out section start
 // set a pin number
 const cashoutInValidNumber = 5678;
-// add event listner 
-document.getElementById('withdraw-money-button').addEventListener('click', function (event) {
-    event.preventDefault();
-    // call the funtction 
-    const agentAgentNumber = getValueWithoutParsIntNumber('cashout-agent-number');
-    const cashOutWithdraw = getInputValueNumber('cashout-withdraw-number');
-    const cashOutPinNumber = getInputValueNumber('cashout-pin-number');
+// add event listner
+document
+    .getElementById("withdraw-money-button")
+    .addEventListener("click", function (event) {
+        event.preventDefault();
+        // call the funtction
+        const agentAgentNumber = getValueWithoutParsIntNumber(
+            "cashout-agent-number",
+        );
+        const cashOutWithdraw = getInputValueNumber("cashout-withdraw-number");
+        const cashOutPinNumber = getInputValueNumber("cashout-pin-number");
 
-    // cheek agent number is valid and ensure they givien must be 11 digit 
-    if (agentAgentNumber.length < 11) {
-        alert("Enter must be 11 digit number");
-        return;
-    }
-    // cheek pin number
-    if (cashOutPinNumber !== cashoutInValidNumber) {
-        alert("you drop the 5678 pin number");
-        return;
-    }
-    // access available-amount
-    const addTotalCashoutAmount = parseInt(
-        document.getElementById("available-amount").innerText
-    );
-    //  subtraction to the total amount and cashout withdraw amount
-    const newCashoutNumber = addTotalCashoutAmount - cashOutWithdraw;
-    // 
-    document.getElementById('available-amount').innerText = newCashoutNumber;
-})
+        // cheek agent number is valid and ensure they givien must be 11 digit
+        if (agentAgentNumber.length < 11) {
+            alert("Enter must be 11 digit number");
+            return;
+        }
+        // cheek pin number
+        if (cashOutPinNumber !== cashoutInValidNumber) {
+            alert("you drop the 5678 pin number");
+            return;
+        }
+        // call the function available-amount id
+        const totalavailbleCashoutAmount = getInnerTextValue("available-amount");
+
+        //  subtraction to the total amount and cashout withdraw amount
+        const newAvailbleCashoutNumber = totalavailbleCashoutAmount - cashOutWithdraw;
+        setInnerText(newAvailbleCashoutNumber)
+
+    });
 // cash out section end

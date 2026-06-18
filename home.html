@@ -19,12 +19,12 @@
 
 <body>
     <!-- top section -->
-    <section id="top">
-        <div id="top-section" class="w-[500px] mx-auto flex justify-between items-center mt-5 bg-[#ffff] shadow">
+    <section id="top" class="mb-2">
+        <div id="top-section" class="w-[500px] mx-auto flex justify-between items-center mt-5 bg-[#ffff] shadow p-2">
             <div class="right-section flex">
                 <img src="assets/Group.png" alt="group img" class="h-[50px]" />
                 <div class="ml-4">
-                    <!-- added total amount number id is add-total-amount -->
+                    <!-- available-amount id -->
                     <h3 class="font-bold text-lg">
                         $ <span id="available-amount">45000</span>
                     </h3>
@@ -36,13 +36,15 @@
                     <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>LogOut
                 </button>
             </div>
+            <hr />
         </div>
     </section>
+
     <!-- top section end-->
     <!-- welcome section -->
     <section id="welcome-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
         <h2 class="font-bold text-2xl my-1.5">🔥 Welcome to Payooo!</h2>
-        <p class="w-[402px] text-gray-600">
+        <p class="w-[402px] text-gray-600 ml-2">
             Enjoy easy and convenient financial services with us. Cashout charge is
             low and
         </p>
@@ -52,34 +54,39 @@
     <section id="card-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
         <div class="card-description">
             <div id="addMoney-button"
-                class="card-1 w-[123px] h-[90px] rounded-1xl border-[1px solid gray] shadow mx-auto">
+                class="card-1 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/purse1.png" alt="" />
-                <p>Add Money</p>
+                <p class="font-bold">Add Money</p>
             </div>
 
-            <div id="cashOut-button" class="card-2 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+            <div id="cashOut-button"
+                class="card-2 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/send1.png" alt="" />
-                <p>Cashout</p>
+                <p class="font-bold">Cashout</p>
             </div>
 
-            <div id="transfer-button" class="card-3 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+            <div id="transfer-button"
+                class="card-3 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col ">
                 <img src="assets/money1.png" alt="" />
-                <p>Transfer Money</p>
+                <p class="font-bold">Transfer Money</p>
             </div>
 
-            <div class="card-4 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+            <div
+                class="card-4 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/bonus1.png" alt="" />
-                <p>Get Bonus</p>
+                <p class="font-bold">Get Bonus</p>
             </div>
 
-            <div class="card-5 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+            <div
+                class="card-5 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/wallet1.png" alt="" />
-                <p>Pay Bill</p>
+                <p class="font-bold">Pay Bill</p>
             </div>
 
-            <div class="card-6 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+            <div
+                class="card-6 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/transaction1.png" alt="" />
-                <p>Transactions</p>
+                <p class="font-bold">Transactions</p>
             </div>
         </div>
     </section>
@@ -87,7 +94,7 @@
 
     <!-- add money section -->
     <section id="add-money-section" class="w-[500px] mx-auto bg-[#ffff] shadow mt-7">
-        <h1 class="text-left ml-3 text-2xl">Add Money</h1>
+        <h1 class="text-left ml-3 text-2xl font-bold">Add Money</h1>
         <div id="add-money-info" class="flex flex-col justify-center items-center">
             <form class="rounded-2xl bg-[#FFFFFF] p-5">
                 <div>
@@ -123,11 +130,10 @@
     <!-- add money section end  -->
 
     <!-- cash out section  start-->
-    <section id="cash-out-section" style="display: none;" class="w-[500px] mx-auto bg-[#ffff] shadow mt-7">
-        <h1 class="text-left ml-3 text-2xl">Cash Out</h1>
+    <section id="cash-out-section" style="display: none" class="w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        <h1 class="text-left ml-3 text-2xl font-bold">Cash Out</h1>
         <div id="cash-out-section" class="flex flex-col justify-center items-center">
             <form class="rounded-2xl bg-[#FFFFFF] p-5">
-
                 <div id="agent-account-number" class="mt-4">
                     <label for="account-number" class="ml-2">Agent Number</label>
                     <input type="text" placeholder="Enter 11 digit account number" id="cashout-agent-number"
