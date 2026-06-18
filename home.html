@@ -26,7 +26,7 @@
                 <div class="ml-4">
                     <!-- added total amount number id is add-total-amount -->
                     <h3 class="font-bold text-lg">
-                        $ <span id="add-total-amount">45000</span>
+                        $ <span id="available-amount">45000</span>
                     </h3>
                     <p class="text-gray-600">Available Balance</p>
                 </div>
@@ -62,7 +62,7 @@
                 <p>Cashout</p>
             </div>
 
-            <div class="card-3 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
+            <div id="transfer-button" class="card-3 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow">
                 <img src="assets/money1.png" alt="" />
                 <p>Transfer Money</p>
             </div>
@@ -90,10 +90,9 @@
         <h1 class="text-left ml-3 text-2xl">Add Money</h1>
         <div id="add-money-info" class="flex flex-col justify-center items-center">
             <form class="rounded-2xl bg-[#FFFFFF] p-5">
-                <div id="bank-info">
-                    <select class="select bg-[#F4F5F7] rounded-4xl mt-2">
-                        <h1>Select A Bank</h1>
-                        <option>Pick A Bank</option>
+                <div>
+                    <select id="bank-info" class="select bg-[#F4F5F7] rounded-4xl mt-2">
+                        <option>Select A Bank</option>
                         <option>Brack Bank</option>
                         <option>Duch Bangla Bank</option>
                         <option>Islami Bank</option>
@@ -144,7 +143,7 @@
                     <input type="password" placeholder="Enter 4 digit pin number" id="cashout-pin-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
-                <!-- login button -->
+                <!-- withdraw money button -->
                 <button id="withdraw-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
                     Withdraw Money
                 </button>
