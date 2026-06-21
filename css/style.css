@@ -10,7 +10,7 @@ body {
 
 }
 
-/* home.html file ar  card section */
+/* home.html file ar card section */
 .card-description {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <!-- top section -->
+    <!--========================== top section ================================-->
     <section id="top" class="mb-2">
         <div id="top-section" class="w-[500px] mx-auto flex justify-between items-center mt-5 bg-[#ffff] shadow p-2">
             <div class="right-section flex">
@@ -40,8 +40,8 @@
         </div>
     </section>
 
-    <!-- top section end-->
-    <!-- welcome section -->
+    <!--========================== top section end ============================-->
+    <!--========================== welcome section =============================-->
     <section id="welcome-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
         <h2 class="font-bold text-2xl my-1.5">🔥 Welcome to Payooo!</h2>
         <p class="w-[402px] text-gray-600 ml-2">
@@ -49,51 +49,51 @@
             low and
         </p>
     </section>
-    <!-- welcome section end-->
-    <!-- card section -->
+    <!--======================== welcome section end ==============================-->
+    <!--=================== card section ============================= -->
     <section id="card-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
         <div class="card-description">
             <div id="addMoney-button"
-                class="card-1 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
+                class="card-1 toggle-btn w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/purse1.png" alt="" />
                 <p class="font-bold">Add Money</p>
             </div>
 
             <div id="cashOut-button"
-                class="card-2 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
+                class="card-2 toggle-btn w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/send1.png" alt="" />
                 <p class="font-bold">Cashout</p>
             </div>
 
             <div id="transfer-button"
-                class="card-3 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col ">
+                class="card-3 toggle-btn w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col ">
                 <img src="assets/money1.png" alt="" />
                 <p class="font-bold">Transfer Money</p>
             </div>
 
-            <div
+            <div id="get-bonus-button"
                 class="card-4 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/bonus1.png" alt="" />
                 <p class="font-bold">Get Bonus</p>
             </div>
 
-            <div
+            <div id="pay-bill-button"
                 class="card-5 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/wallet1.png" alt="" />
                 <p class="font-bold">Pay Bill</p>
             </div>
 
-            <div
+            <div id="transction-button"
                 class="card-6 w-[123px] h-[90px] rounded-2xl border-[1px solid gray] shadow flex justify-center items-center flex-col">
                 <img src="assets/transaction1.png" alt="" />
                 <p class="font-bold">Transactions</p>
             </div>
         </div>
     </section>
-    <!-- card section end -->
+    <!--======================== card section end ===============================-->
 
     <!-- add money section -->
-    <section id="add-money-section" class="w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+    <section id="add-money-section" class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
         <h1 class="text-left ml-3 text-2xl font-bold">Add Money</h1>
         <div id="add-money-info" class="flex flex-col justify-center items-center">
             <form class="rounded-2xl bg-[#FFFFFF] p-5">
@@ -106,17 +106,17 @@
                     </select>
                 </div>
                 <div id="bank-account-number" class="mt-4">
-                    <label for="account-number" class="ml-2">Bank Account Number</label>
+                    <label for="account-number" class="ml-2 color-[#080808] font-medium">Bank Account Number</label>
                     <input type="text" placeholder="Enter 11 digit account number" id="account-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <div id="amount-witdraw-number" class="mt-4">
-                    <label for="add-withdraw-number" class="ml-2">Amount to Add</label>
+                    <label for="add-withdraw-number" class="ml-2 color-[#080808] font-medium">Amount to Add</label>
                     <input type="number" placeholder="Add Amount to withdraw" id="add-withdraw-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <div id="account-pin-number" class="mt-4">
-                    <label for="pin-number" class="ml-2">Pin Number</label>
+                    <label for="pin-number" class="ml-2 color-[#080808] font-medium">Pin Number</label>
                     <input type="password" placeholder="Enter 4 digit pin number" id="pin-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
@@ -127,25 +127,26 @@
             </form>
         </div>
     </section>
-    <!-- add money section end  -->
+    <!--====================== add money section end  ===========================-->
 
-    <!-- cash out section  start-->
-    <section id="cash-out-section" style="display: none" class="w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+    <!--=========================== cash out section  start =========================-->
+    <section id="cash-out-section" style="display: none"
+        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
         <h1 class="text-left ml-3 text-2xl font-bold">Cash Out</h1>
         <div id="cash-out-section" class="flex flex-col justify-center items-center">
             <form class="rounded-2xl bg-[#FFFFFF] p-5">
                 <div id="agent-account-number" class="mt-4">
-                    <label for="account-number" class="ml-2">Agent Number</label>
+                    <label for="account-number" class="ml-2 color-[#080808] font-medium">Agent Number</label>
                     <input type="text" placeholder="Enter 11 digit account number" id="cashout-agent-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <div id="amount-witdraw-number" class="mt-4">
-                    <label for="add-withdraw-number" class="ml-2">Amount</label>
+                    <label for="add-withdraw-number" class="ml-2 color-[#080808] font-medium">Amount</label>
                     <input type="number" placeholder="Enter Amount to Withdraw" id="cashout-withdraw-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <div id="account-pin-number" class="mt-4">
-                    <label for="pin-number" class="ml-2">Pin Number</label>
+                    <label for="pin-number" class="ml-2 color-[#080808] font-medium">Pin Number</label>
                     <input type="password" placeholder="Enter 4 digit pin number" id="cashout-pin-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
@@ -156,7 +157,110 @@
             </form>
         </div>
     </section>
-    <!-- cash out section end  -->
+    <!--========================= cash out section end ============================== -->
+    <!-- ============================ transfer section start ===============================-->
+    <section id="transfer-section" style="display: none"
+        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        <h1 class="text-left ml-3 text-2xl font-bold">Transfer Money</h1>
+        <div id="transfer-money-section" class="flex flex-col justify-center items-center">
+            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+                <div id="transfer-account-number" class="mt-4">
+                    <label for="transfer-input-account-number" class="ml-2 color-[#080808] font-medium">User Account
+                        Number</label>
+                    <input type="text" placeholder="Enter 11 digit number" id="transfer-input-account-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="transfer-amount-number" class="mt-4 flex flex-col">
+                    <label for="transfer-amount-input-number" class="ml-2 color-[#080808] font-medium">Amount</label>
+                    <input type="number" placeholder="Enter amount to transfer" id="transfer-amount-input-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="transfer-pin-number" class="mt-4">
+                    <label for="transfer-input-pin-number" class="ml-2 color-[#080808] font-medium">Pin Number</label>
+                    <input type="password" placeholder="Enter 4 digit pin number" id="transfer-input-pin-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <!-- transfer money button -->
+                <button id="transfer-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                    Send Now
+                </button>
+            </form>
+        </div>
+    </section>
+    <!--============================= transfer section end ===================================-->
+    <!--=========================== get bonous section start ============================== -->
+    <section id="get-bonus-section" style="display:none "
+        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        <h1 class="text-left ml-3 text-2xl font-bold">Get Bonus</h1>
+        <div id="bonus-description-section" class="flex flex-col justify-center items-center">
+            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+                <div id="transfer-account-number" class="mt-4">
+                    <label for="get-bonus-input-number" class="ml-2 color-[#080808] font-medium">Enter Bonus
+                        Coupon</label>
+                    <input type="text" placeholder="Enter your coupon" id="get-bonus-input-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <!-- get bonus button -->
+                <button id="get-bonus-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                    Get Bonus
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-- ================================get bonous section end  ===============================-->
+    <!--============================ pay bill section start ======================================-->
+    <section id="pay-bill-section" style="display: none"
+        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        <h1 class="text-left ml-3 text-2xl font-bold">Pay Bill</h1>
+        <div id="add-money-info" class="flex flex-col justify-center items-center">
+            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+                <div>
+                    <select id="bank-info" class="select bg-[#F4F5F7] rounded-4xl mt-2">
+                        <option>Select To Pay</option>
+                        <option>Gas</option>
+                        <option>Water</option>
+                        <option>Internet</option>
+                    </select>
+                </div>
+                <div id="biller-account-number" class="mt-4">
+                    <label for="bill-account-input-number" class="ml-2 color-[#080808] font-medium">Biller Account
+                        Number</label>
+                    <input type="text" placeholder="Enter account number" id="bill-account-input-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="amount-to-pay" class="mt-4">
+                    <label for="add-withdraw-number" class="ml-2 color-[#080808] font-medium">Amount to Pay</label>
+                    <input type="number" placeholder="Add Amount to pay" id="amount-to-pay-input"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <div id="pay-bill-pin-number" class="mt-4">
+                    <label for="pay-bill-input-number" class="ml-2 color-[#080808] font-medium">Pin Number</label>
+                    <input type="password" placeholder="Enter 4 digit pin number" id="pay-bill-input-number"
+                        class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
+                </div>
+                <!-- pay bill button -->
+                <button id="pay-bill-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                    Pay Now
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-----==================== pay bill section end ===============================---->
+    <!-----========================== transction section start ==============================---->
+
+    <section id="transaction-section" class="toggle-section w-[500px] mx-auto bg-[#ebe4e4] shadow mt-7">
+        <!--- transction top part -->
+        <div class="transction-header flex justify-between items-center mr-2 py-4">
+            <h1 class="text-left ml-3 text-2xl font-bold">Transaction History</h1>
+            <h4 class="color-[#080808]">View All</h4>
+        </div>
+        <!---- transction details part ---->
+       
+
+    </section>
+    <!-----========================= transction part end ======================================--->
+
+
 
     <!-- js link -->
     <script src="js/home.js"></script>

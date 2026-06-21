@@ -1,3 +1,5 @@
+// **********************  all common function start ***************************
+
 // function get input values
 function getInputValueNumber(id) {
     const inputField = document.getElementById(id);
@@ -26,10 +28,20 @@ function setInnerText(value) {
     const availableBlanceAmount = document.getElementById("available-amount");
     availableBlanceAmount.innerText = value;
 }
+// togglle button
+function toggleButtons(id) {
+    const toggles = document.getElementsByClassName("toggle-section");
+    for (const toggle of toggles) {
+        toggle.style.display = "none";
+    }
+    document.getElementById(id).style.display = "block";
+}
+// **********************  all common function end ***************************
 
-// add money section all function start
+// ----------------add money section all function start------------------------
 // set add money pin number
 const validPinNumber = 1234;
+const transctionData = [];
 // add event listner handler
 document
     .getElementById("add-money-button")
@@ -56,26 +68,59 @@ document
         //  sum to the avaible total amount and bank withdraw amount
         const newTotalAvailableAmount = addWitdrawNumber + addTotalAvailableAmount;
         setInnerText(newTotalAvailableAmount);
-    });
-// add money section all function end
 
-//toggle feature add money and cash out section
-// add money button
+        // transction dainamic setting
+        const data = {
+            name: "Add Money",
+            date: new Date().toLocaleDateString()
+        }
+        transctionData.push(data);
+
+    });
+// ---------------------add money section all function end-----------------------------
+
+//----------------------- all toggle feauture --------------------------
+// add money button and section
 document
     .getElementById("addMoney-button")
-    .addEventListener("click", function () {
-        document.getElementById("cash-out-section").style.display = "none";
-        document.getElementById("add-money-section").style.display = "block";
+    .addEventListener("click", function (event) {
+        toggleButtons("add-money-section");
     });
-// cash out button
+// cash out button and section
 document
     .getElementById("cashOut-button")
-    .addEventListener("click", function () {
-        document.getElementById("cash-out-section").style.display = "block";
-        document.getElementById("add-money-section").style.display = "none";
+    .addEventListener("click", function (event) {
+        toggleButtons("cash-out-section");
+    });
+// transfer button and section 
+document
+    .getElementById("transfer-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("transfer-section");
     });
 
-// cash out section start
+// get bonus button and section 
+document
+    .getElementById("get-bonus-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("get-bonus-section");
+    });
+// pay bill button and section 
+document
+    .getElementById("pay-bill-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("pay-bill-section");
+    });
+// transction button and section 
+document
+    .getElementById("transction-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("transction-section");
+    });
+
+
+
+// -----------------cash out section start-----------------------
 // set a pin number
 const cashoutInValidNumber = 5678;
 // add event listner
@@ -97,7 +142,7 @@ document
         }
         // cheek pin number
         if (cashOutPinNumber !== cashoutInValidNumber) {
-            alert("you drop the 5678 pin number");
+            alert("You type 5678 number .This is pin number");
             return;
         }
         // call the function available-amount id
@@ -106,6 +151,82 @@ document
         //  subtraction to the total amount and cashout withdraw amount
         const newAvailbleCashoutNumber = totalavailbleCashoutAmount - cashOutWithdraw;
         setInnerText(newAvailbleCashoutNumber)
+        // transction dainamic setting
+        const data = {
+            name: "Cash Out",
+            date: new Date().toLocaleDateString()
+        }
+        transctionData.push(data);
 
     });
-// cash out section end
+// --------------------------cash out section end--------------------------
+// -------------------------transction section start -----------------------
+document.getElementById('transction-button').addEventListener('click', function (event) {
+    const transactionSection = document.getElementById('transaction-section');
+    for (const data of transctionData) {
+        const div = document.createElement('div');
+        div.innerHTML = `
+         <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
+            <div class="left flex items-center">
+                <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
+                    <img src="assets/purse1.png" alt="">
+                </div>
+                <div>
+                    <h4>${data.name}</h4>
+                    <p>${data.date}</p>
+                </div>
+            </div>
+            <div class="mr-2">
+                <i class="fa-solid fa-ellipsis "></i>
+            </div>
+        </div>
+
+        <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
+            <div class="left flex items-center">
+                <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
+                    <img src="assets/purse1.png" alt="">
+                </div>
+                <div>
+                    <h4>Bank Deposit</h4>
+                    <p>Today 01:44 AM</p>
+                </div>
+            </div>
+            <div class="mr-2">
+                <i class="fa-solid fa-ellipsis "></i>
+            </div>
+        </div>
+
+        <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
+            <div class="left flex items-center">
+                <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
+                    <img src="assets/purse1.png" alt="">
+                </div>
+                <div>
+                    <h4>Mobile Recharge</h4>
+                    <p>Today 01:44 AM</p>
+                </div>
+            </div>
+            <div class="mr-2">
+                <i class="fa-solid fa-ellipsis "></i>
+            </div>
+        </div>
+        <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
+            <div class="left flex items-center">
+                <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
+                    <img src="assets/purse1.png" alt="">
+                </div>
+                <div>
+                    <h4>Gas Bill</h4>
+                    <p>Today 01:44 AM</p>
+                </div>
+            </div>
+            <div class="mr-2">
+                <i class="fa-solid fa-ellipsis "></i>
+            </div>
+        </div>
+        `
+
+        transactionSection.appendChild('div');
+    }
+
+})
