@@ -28,6 +28,7 @@ function setInnerText(value) {
     const availableBlanceAmount = document.getElementById("available-amount");
     availableBlanceAmount.innerText = value;
 }
+
 // togglle button
 function toggleButtons(id) {
     const toggles = document.getElementsByClassName("toggle-section");
@@ -36,12 +37,74 @@ function toggleButtons(id) {
     }
     document.getElementById(id).style.display = "block";
 }
+// toggle to section
+function handleToggleButtons(id) {
+    const toogleBtn = document.getElementsByClassName('toggle-btn');
+    console.log("this is toogel", toogleBtn);
+    for (const btn of toogleBtn) {
+        btn.classList.remove("rounded-2xl", "border");
+        btn.classList.add("border-[5px]");
+    }
+    document.getElementById(id).classList.remove("border-[5px]");
+    document.getElementById(id).classList.add("rounded-2xl", "border");
+
+}
+
+
 // **********************  all common function end ***************************
+//----------------------- all toggle feauture --------------------------
+// add money button and section
+document
+    .getElementById("addMoney-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("add-money-section");
+        handleToggleButtons("addMoney-button");
+
+
+    });
+// cash out button and section
+document
+    .getElementById("cashOut-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("cash-out-section");
+        handleToggleButtons("cashOut-button");
+    });
+// transfer button and section 
+document
+    .getElementById("transfer-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("transfer-section");
+        handleToggleButtons("transfer-button");
+    });
+
+// get bonus button and section 
+document
+    .getElementById("get-bonus-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("get-bonus-section");
+        handleToggleButtons("get-bonus-button");
+    });
+// pay bill button and section 
+document
+    .getElementById("pay-bill-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("pay-bill-section");
+        handleToggleButtons("pay-bill-button");
+    });
+// transction button and section 
+document
+    .getElementById("transction-button")
+    .addEventListener("click", function (event) {
+        toggleButtons("transaction-section");
+        handleToggleButtons("transction-button");
+    });
+
+//----------------------- all toggle feauture end--------------------------
 
 // ----------------add money section all function start------------------------
 // set add money pin number
 const validPinNumber = 1234;
-const transctionData = [];
+const transactionData = [];
 // add event listner handler
 document
     .getElementById("add-money-button")
@@ -74,51 +137,10 @@ document
             name: "Add Money",
             date: new Date().toLocaleDateString()
         }
-        transctionData.push(data);
+        transactionData.push(data);
 
     });
 // ---------------------add money section all function end-----------------------------
-
-//----------------------- all toggle feauture --------------------------
-// add money button and section
-document
-    .getElementById("addMoney-button")
-    .addEventListener("click", function (event) {
-        toggleButtons("add-money-section");
-    });
-// cash out button and section
-document
-    .getElementById("cashOut-button")
-    .addEventListener("click", function (event) {
-        toggleButtons("cash-out-section");
-    });
-// transfer button and section 
-document
-    .getElementById("transfer-button")
-    .addEventListener("click", function (event) {
-        toggleButtons("transfer-section");
-    });
-
-// get bonus button and section 
-document
-    .getElementById("get-bonus-button")
-    .addEventListener("click", function (event) {
-        toggleButtons("get-bonus-section");
-    });
-// pay bill button and section 
-document
-    .getElementById("pay-bill-button")
-    .addEventListener("click", function (event) {
-        toggleButtons("pay-bill-section");
-    });
-// transction button and section 
-document
-    .getElementById("transction-button")
-    .addEventListener("click", function (event) {
-        toggleButtons("transction-section");
-    });
-
-
 
 // -----------------cash out section start-----------------------
 // set a pin number
@@ -156,14 +178,15 @@ document
             name: "Cash Out",
             date: new Date().toLocaleDateString()
         }
-        transctionData.push(data);
+        transactionData.push(data);
 
     });
 // --------------------------cash out section end--------------------------
 // -------------------------transction section start -----------------------
 document.getElementById('transction-button').addEventListener('click', function (event) {
     const transactionSection = document.getElementById('transaction-section');
-    for (const data of transctionData) {
+    transactionSection.innerHTML = "";
+    for (const data of transactionData) {
         const div = document.createElement('div');
         div.innerHTML = `
          <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
@@ -180,53 +203,14 @@ document.getElementById('transction-button').addEventListener('click', function 
                 <i class="fa-solid fa-ellipsis "></i>
             </div>
         </div>
-
-        <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
-            <div class="left flex items-center">
-                <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
-                    <img src="assets/purse1.png" alt="">
-                </div>
-                <div>
-                    <h4>Bank Deposit</h4>
-                    <p>Today 01:44 AM</p>
-                </div>
-            </div>
-            <div class="mr-2">
-                <i class="fa-solid fa-ellipsis "></i>
-            </div>
-        </div>
-
-        <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
-            <div class="left flex items-center">
-                <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
-                    <img src="assets/purse1.png" alt="">
-                </div>
-                <div>
-                    <h4>Mobile Recharge</h4>
-                    <p>Today 01:44 AM</p>
-                </div>
-            </div>
-            <div class="mr-2">
-                <i class="fa-solid fa-ellipsis "></i>
-            </div>
-        </div>
-        <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
-            <div class="left flex items-center">
-                <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
-                    <img src="assets/purse1.png" alt="">
-                </div>
-                <div>
-                    <h4>Gas Bill</h4>
-                    <p>Today 01:44 AM</p>
-                </div>
-            </div>
-            <div class="mr-2">
-                <i class="fa-solid fa-ellipsis "></i>
-            </div>
-        </div>
         `
-
-        transactionSection.appendChild('div');
+        transactionSection.appendChild(div);
     }
 
 })
+
+
+
+
+
+// toggle - section //22 number line
