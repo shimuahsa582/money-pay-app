@@ -23,13 +23,13 @@ function getInnerTextValue(id) {
     return elementValueNumber;
 }
 
-// functio to set innerText 
+// functio to set innerText
 function setInnerText(value) {
     const availableBlanceAmount = document.getElementById("available-amount");
     availableBlanceAmount.innerText = value;
 }
 
-// togglle button
+// togglle to section
 function toggleButtons(id) {
     const toggles = document.getElementsByClassName("toggle-section");
     for (const toggle of toggles) {
@@ -37,19 +37,16 @@ function toggleButtons(id) {
     }
     document.getElementById(id).style.display = "block";
 }
-// toggle to section
+// toggle to button
 function handleToggleButtons(id) {
-    const toogleBtn = document.getElementsByClassName('toggle-btn');
-    console.log("this is toogel", toogleBtn);
+    const toogleBtn = document.getElementsByClassName("toggle-btn");
     for (const btn of toogleBtn) {
-        btn.classList.remove("rounded-2xl", "border");
-        btn.classList.add("border-[5px]");
+        btn.classList.remove("border-[1px]", "border-green-500");
+        btn.classList.add("border", "border-gray-400");
     }
-    document.getElementById(id).classList.remove("border-[5px]");
-    document.getElementById(id).classList.add("rounded-2xl", "border");
-
+    document.getElementById(id).classList.remove("border", "border-gray-400");
+    document.getElementById(id).classList.add("border-[1px]", "border-green-500");
 }
-
 
 // **********************  all common function end ***************************
 //----------------------- all toggle feauture --------------------------
@@ -59,8 +56,6 @@ document
     .addEventListener("click", function (event) {
         toggleButtons("add-money-section");
         handleToggleButtons("addMoney-button");
-
-
     });
 // cash out button and section
 document
@@ -69,7 +64,7 @@ document
         toggleButtons("cash-out-section");
         handleToggleButtons("cashOut-button");
     });
-// transfer button and section 
+// transfer button and section
 document
     .getElementById("transfer-button")
     .addEventListener("click", function (event) {
@@ -77,26 +72,26 @@ document
         handleToggleButtons("transfer-button");
     });
 
-// get bonus button and section 
+// get bonus button and section
 document
     .getElementById("get-bonus-button")
     .addEventListener("click", function (event) {
         toggleButtons("get-bonus-section");
         handleToggleButtons("get-bonus-button");
     });
-// pay bill button and section 
+// pay bill button and section
 document
     .getElementById("pay-bill-button")
     .addEventListener("click", function (event) {
         toggleButtons("pay-bill-section");
         handleToggleButtons("pay-bill-button");
     });
-// transction button and section 
+// transction button and section
 document
-    .getElementById("transction-button")
+    .getElementById("transaction-button")
     .addEventListener("click", function (event) {
         toggleButtons("transaction-section");
-        handleToggleButtons("transction-button");
+        handleToggleButtons("transaction-button");
     });
 
 //----------------------- all toggle feauture end--------------------------
@@ -110,12 +105,15 @@ document
     .getElementById("add-money-button")
     .addEventListener("click", function (event) {
         event.preventDefault();
+
         // call the function without parsInt value
         const bankInfo = getValueWithoutParsIntNumber("bank-info");
         const accountNumber = getValueWithoutParsIntNumber("account-number");
+
         // call the function parsInt value
         const addWitdrawNumber = getInputValueNumber("add-withdraw-number");
         const pinNumber = getInputValueNumber("pin-number");
+
         // cheek the valid account number when user try to enrty
         if (accountNumber.length < 11) {
             alert("please enter a valid account number must be 11 digit");
@@ -126,6 +124,7 @@ document
             alert("Enter your pin number 1234 otherwise this code not excicute");
             return;
         }
+
         // call the function available-amount id
         const addTotalAvailableAmount = getInnerTextValue("available-amount");
         //  sum to the avaible total amount and bank withdraw amount
@@ -135,10 +134,9 @@ document
         // transction dainamic setting
         const data = {
             name: "Add Money",
-            date: new Date().toLocaleDateString()
-        }
+            date: new Date().toLocaleDateString(),
+        };
         transactionData.push(data);
-
     });
 // ---------------------add money section all function end-----------------------------
 
@@ -171,24 +169,111 @@ document
         const totalavailbleCashoutAmount = getInnerTextValue("available-amount");
 
         //  subtraction to the total amount and cashout withdraw amount
-        const newAvailbleCashoutNumber = totalavailbleCashoutAmount - cashOutWithdraw;
-        setInnerText(newAvailbleCashoutNumber)
+        const newAvailbleCashoutNumber =
+            totalavailbleCashoutAmount - cashOutWithdraw;
+        setInnerText(newAvailbleCashoutNumber);
         // transction dainamic setting
         const data = {
             name: "Cash Out",
-            date: new Date().toLocaleDateString()
-        }
+            date: new Date().toLocaleDateString(),
+        };
         transactionData.push(data);
-
     });
 // --------------------------cash out section end--------------------------
+// --------------------------- get bonus start ----------------------------
+const validCoupon = "PAYOO100";
+document.getElementById("bonus-button")
+    .addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const couponCode =
+            getValueWithoutParsIntNumber("get-bonus-input-number");
+
+        if (couponCode !== validCoupon) {
+            alert("Invalid Coupon Code");
+            return;
+        }
+
+        const currentBalance =
+            getInnerTextValue("available-amount");
+
+        const bonusAmount = 100;
+
+        const newBalance =
+            currentBalance + bonusAmount;
+
+        setInnerText(newBalance);
+
+        const data = {
+            name: "Bonus Added",
+            date: new Date().toLocaleDateString()
+        };
+
+        transactionData.push(data);
+
+        alert("100 Taka Bonus Added");
+    });
+//-------------------------- get bonus end---------------------------
+// ----------------------------pay bill section ---------------------
+document.getElementById("bill-button")
+    .addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const billerAccount =
+            getValueWithoutParsIntNumber("bill-account-input-number");
+
+        const billAmount =
+            getInputValueNumber("amount-to-pay-input");
+
+        const pinNumber =
+            getInputValueNumber("pay-bill-input-number");
+
+        if (billerAccount.length < 11) {
+            alert("Please enter valid account number");
+            return;
+        }
+
+        if (pinNumber !== 1234) {
+            alert("Invalid Pin Number");
+            return;
+        }
+
+        const currentBalance =
+            getInnerTextValue("available-amount");
+
+        if (billAmount > currentBalance) {
+            alert("Insufficient Balance");
+            return;
+        }
+
+        const newBalance =
+            currentBalance - billAmount;
+
+        setInnerText(newBalance);
+
+        const data = {
+            name: "Pay Bill",
+            date: new Date().toLocaleDateString()
+        };
+
+        transactionData.push(data);
+
+        alert("Bill Payment Successful");
+    });
+// --------------------------- pay bill end --------------------------------
 // -------------------------transction section start -----------------------
-document.getElementById('transction-button').addEventListener('click', function (event) {
-    const transactionSection = document.getElementById('transaction-section');
-    transactionSection.innerHTML = "";
-    for (const data of transactionData) {
-        const div = document.createElement('div');
-        div.innerHTML = `
+document
+    .getElementById("transaction-button")
+    .addEventListener("click", function (event) {
+        const transactionContainer = document.getElementById(
+            "transaction-container",
+        );
+
+        transactionContainer.innerHTML = "";
+        for (const data of transactionData) {
+            const div = document.createElement("div");
+
+            div.innerHTML = `
          <div class="transaction-details flex justify-between items-center bg-[#FFFFFF] shadow rounded-xl p-4 mt-3">
             <div class="left flex items-center">
                 <div class="flex bg-[#d4d4d4] rounded-xl p-1.5 mr-3">
@@ -203,14 +288,8 @@ document.getElementById('transction-button').addEventListener('click', function 
                 <i class="fa-solid fa-ellipsis "></i>
             </div>
         </div>
-        `
-        transactionSection.appendChild(div);
-    }
+        `;
+            transactionContainer.appendChild(div);
+        }
+    });
 
-})
-
-
-
-
-
-// toggle - section //22 number line
