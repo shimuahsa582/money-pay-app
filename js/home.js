@@ -1,4 +1,12 @@
 // **********************  all common function start ***************************
+// logout button
+document
+    .getElementById("logout-btn")
+    .addEventListener("click", function () {
+
+        window.location.href = "./index.html";
+
+    });
 
 // function get input values
 function getInputValueNumber(id) {
@@ -28,6 +36,12 @@ function setInnerText(value) {
     const availableBlanceAmount = document.getElementById("available-amount");
     availableBlanceAmount.innerText = value;
 }
+// function to input feild clear
+function clearInputs(ids) {
+    for (const id of ids) {
+        document.getElementById(id).value = "";
+    }
+}
 
 // togglle to section
 function toggleButtons(id) {
@@ -41,11 +55,11 @@ function toggleButtons(id) {
 function handleToggleButtons(id) {
     const toogleBtn = document.getElementsByClassName("toggle-btn");
     for (const btn of toogleBtn) {
-        btn.classList.remove("border-[1px]", "border-green-500");
+        btn.classList.remove("border-[3px]", "border-green-500");
         btn.classList.add("border", "border-gray-400");
     }
     document.getElementById(id).classList.remove("border", "border-gray-400");
-    document.getElementById(id).classList.add("border-[1px]", "border-green-500");
+    document.getElementById(id).classList.add("border-[3px]", "border-green-500");
 }
 
 // **********************  all common function end ***************************
@@ -107,7 +121,7 @@ document
         event.preventDefault();
 
         // call the function without parsInt value
-        const bankInfo = getValueWithoutParsIntNumber("bank-info");
+        // const bankInfo = getValueWithoutParsIntNumber("bank-info");
         const accountNumber = getValueWithoutParsIntNumber("account-number");
 
         // call the function parsInt value
@@ -121,7 +135,7 @@ document
         }
 
         // cheek the valid account number when user try to enrty
-        if (accountNumber.length < 11) {
+        if (accountNumber.length !== 11) {
             alert("please enter a valid account number must be 11 digit");
             return;
         }
@@ -137,7 +151,14 @@ document
         const newTotalAvailableAmount = addWitdrawNumber + addTotalAvailableAmount;
         setInnerText(newTotalAvailableAmount);
 
-        // transction dainamic setting
+        // input clear
+        clearInputs([
+            "account-number",
+            "add-withdraw-number",
+            "pin-number"
+        ]);
+
+        // add money daynamic setting to transaction history
         const data = {
             name: "Add Money",
             date: new Date().toLocaleDateString(),
@@ -148,7 +169,7 @@ document
 
 // -----------------cash out section start-----------------------
 // set a pin number
-const cashoutInValidNumber = 5678;
+const cashoutInValidNumber = 1234;
 // add event listner
 document
     .getElementById("withdraw-money-button")
@@ -156,7 +177,7 @@ document
         event.preventDefault();
 
         // call the funtction
-        const agentAgentNumber = getValueWithoutParsIntNumber(
+        const agentNumber = getValueWithoutParsIntNumber(
             "cashout-agent-number",
         );
         const cashOutWithdraw = getInputValueNumber("cashout-withdraw-number");
@@ -165,12 +186,12 @@ document
 
         // validation cashout blance
         if (cashOutWithdraw <= 0 || cashOutWithdraw > availableBalance) {
-            alert("Your blance is not avaible avaible.you withdraw heighst 45000 taka");
+            alert("Insufficient balance. Maximum available balance is 45000 taka.");
             return;
         }
 
         // cheek agent number is valid and ensure they given must be 11 digit
-        if (agentAgentNumber.length < 11) {
+        if (agentNumber.length !== 11) {
             alert("Enter must be 11 digit number");
             return;
         }
@@ -182,10 +203,18 @@ document
         }
 
         //  subtraction to the total amount and cashout withdraw amount
-        const newAvailbleCashoutNumber =
+        const newCashoutBalance =
             availableBalance - cashOutWithdraw;
-        setInnerText(newAvailbleCashoutNumber);
-        // transction dainamic setting
+        setInnerText(newCashoutBalance);
+
+        // clear inputs
+        clearInputs([
+            "cashout-agent-number",
+            "cashout-withdraw-number",
+            "cashout-pin-number"
+        ]);
+
+        // cashout daynamic setting to transaction history
         const data = {
             name: "Cash Out",
             date: new Date().toLocaleDateString(),
@@ -193,9 +222,61 @@ document
         transactionData.push(data);
     });
 // --------------------------cash out section end--------------------------
+// ------------------------------transfer money start----------------------
+// set a pin number
+const transfervalidPin = 1234;
+
+document.getElementById("transfer-money-button").addEventListener('click', function (event) {
+    event.preventDefault();
+
+    // call the function 
+    const transferAccountNumber = getValueWithoutParsIntNumber("transfer-input-account-number");
+    const transferAmount = getInputValueNumber("transfer-amount-input-number");
+    const transferPinNumber = getInputValueNumber("transfer-input-pin-number");
+    const transferCurrentBlance = getInnerTextValue("available-amount");
+
+    // validation
+    if (transferAccountNumber.length !== 11) {
+        alert("Please enter a valid account number must be given 11 digit");
+        return;
+    }
+    if (transferAmount <= 0 || transferAmount > transferCurrentBlance) {
+        alert("Enter a valid amount ");
+        return;
+    }
+    if (transferPinNumber !== transfervalidPin) {
+        alert("Enter 5678 your pin number");
+        return;
+    }
+
+    //  subtraction to the avaible amount and transfer amount
+    const newTransferBlance = transferCurrentBlance - transferAmount;
+    setInnerText(newTransferBlance);
+
+    // clear inputs
+    clearInputs([
+        "transfer-input-account-number",
+        "transfer-amount-input-number",
+        "transfer-input-pin-number"
+    ]);
+
+
+    // transfer daynamic setting to transaction history
+    const data = {
+        name: "Transfer Money",
+        date: new Date().toLocaleDateString(),
+    };
+
+    transactionData.push(data);
+
+})
+
+// ------------------------------transfer money end----------------------
 
 // --------------------------- get bonus start ----------------------------
+// set a coupon number
 const validCoupon = "PAYOO100";
+
 document.getElementById("bonus-button")
     .addEventListener("click", function (event) {
         event.preventDefault();
@@ -218,6 +299,7 @@ document.getElementById("bonus-button")
 
         setInnerText(newBalance);
 
+        // get bonus daynamic setting to transaction history
         const data = {
             name: "Bonus Added",
             date: new Date().toLocaleDateString()
@@ -232,7 +314,7 @@ document.getElementById("bonus-button")
 document.getElementById("bill-button")
     .addEventListener("click", function (event) {
         event.preventDefault();
-
+        // call the function
         const billerAccount =
             getValueWithoutParsIntNumber("bill-account-input-number");
 
@@ -242,6 +324,7 @@ document.getElementById("bill-button")
         const pinNumber =
             getInputValueNumber("pay-bill-input-number");
 
+        // validation
         if (billerAccount.length < 11) {
             alert("Please enter valid account number");
             return;
@@ -264,7 +347,7 @@ document.getElementById("bill-button")
             currentBalance - billAmount;
 
         setInnerText(newBalance);
-
+        // pay bill daynamic setting to transaction history
         const data = {
             name: "Pay Bill",
             date: new Date().toLocaleDateString()

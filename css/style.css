@@ -13,12 +13,8 @@ body {
 /* home.html file ar card section */
 .card-description {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    justify-content: space-between;
-    align-items: center;
-    max-width: 500px;
-    row-gap: 30px;
-    margin: 40px 0px 0px 15px;
-
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+    padding: 16px;
 }

@@ -20,7 +20,8 @@
 <body>
     <!--========================== top section ================================-->
     <section id="top" class="mb-2">
-        <div id="top-section" class="w-[500px] mx-auto flex justify-between items-center mt-5 bg-[#ffff] shadow p-2">
+        <div id="top-section"
+            class="w-full max-w-[500px] mx-auto flex justify-between items-center mt-5 bg-[#ffff] shadow p-2">
             <div class="right-section flex">
                 <img src="assets/Group.png" alt="group img" class="h-[50px]" />
                 <div class="ml-4">
@@ -32,7 +33,7 @@
                 </div>
             </div>
             <div class="right-section">
-                <button type="submit" class="btn text-gray-600">
+                <button type="submit" id="logout-btn" class="btn text-gray-600">
                     <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>LogOut
                 </button>
             </div>
@@ -42,49 +43,49 @@
 
     <!--========================== top section end ============================-->
     <!--========================== welcome section =============================-->
-    <section id="welcome-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
+    <section id="welcome-section" class="w-full max-w-[500px] mx-auto py-5 bg-[#ffff] shadow">
         <h2 class="font-bold text-2xl my-1.5">🔥 Welcome to Payooo!</h2>
-        <p class="w-[402px] text-gray-600 ml-2">
+        <p class="w-full text-gray-600 ml-2">
             Enjoy easy and convenient financial services with us. Cashout charge is
             low and
         </p>
     </section>
     <!--======================== welcome section end ==============================-->
     <!--=================== card section ============================= -->
-    <section id="card-section" class="w-[500px] mx-auto py-5 bg-[#ffff] shadow">
-        <div class="card-description">
+    <section id="card-section" class="w-full max-w-[500px] mx-auto py-5 bg-[#ffff] shadow ">
+        <div class="card-description ">
             <div id="addMoney-button"
-                class="card-1 toggle-btn w-[123px] h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
+                class="card-1 toggle-btn w-full h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
                 <img src="assets/purse1.png" alt="" />
                 <p class="font-bold">Add Money</p>
             </div>
 
             <div id="cashOut-button"
-                class="card-2 toggle-btn w-[123px] h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
+                class="card-2 toggle-btn w-full h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
                 <img src="assets/send1.png" alt="" />
                 <p class="font-bold">Cashout</p>
             </div>
 
             <div id="transfer-button"
-                class="card-3 toggle-btn w-[123px] h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
+                class="card-3 toggle-btn w-full h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
                 <img src="assets/money1.png" alt="" />
                 <p class="font-bold">Transfer Money</p>
             </div>
 
             <div id="get-bonus-button"
-                class="toggle-btn card-4 w-[123px] h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
+                class="toggle-btn card-4 w-full h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
                 <img src="assets/bonus1.png" alt="" />
                 <p class="font-bold">Get Bonus</p>
             </div>
 
             <div id="pay-bill-button"
-                class="toggle-btn card-5 w-[123px] h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
+                class="toggle-btn card-5 w-full h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
                 <img src="assets/wallet1.png" alt="" />
                 <p class="font-bold">Pay Bill</p>
             </div>
 
             <div id="transaction-button"
-                class="toggle-btn card-6 w-[123px] h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
+                class="toggle-btn card-6 w-full h-[90px] rounded-2xl border border-gray-400 flex justify-center items-center flex-col">
                 <img src="assets/transaction1.png" alt="" />
                 <p class="font-bold">Transactions</p>
             </div>
@@ -93,10 +94,10 @@
     <!--======================== card section end ===============================-->
 
     <!-- add money section -->
-    <section id="add-money-section" class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+    <section id="add-money-section" class="toggle-section w-full max-w-[500px] mx-auto bg-[#ffff] shadow mt-7">
         <h1 class="text-left ml-3 text-2xl font-bold">Add Money</h1>
         <div id="add-money-info" class="flex flex-col justify-center items-center">
-            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+            <form class="rounded-2xl bg-[#FFFFFF] w-full max-w-md p-5">
                 <div>
                     <select id="bank-info" class="select bg-[#F4F5F7] rounded-4xl mt-2">
                         <option>Select A Bank</option>
@@ -110,18 +111,18 @@
                     <input type="text" placeholder="Enter 11 digit account number" id="account-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
-                <div id="amount-witdraw-number" class="mt-4">
+                <div id="amount-withdraw-number" class="mt-4">
                     <label for="add-withdraw-number" class="ml-2 color-[#080808] font-medium">Amount to Add</label>
                     <input type="number" placeholder="Add Amount to withdraw" id="add-withdraw-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
-                <div id="account-pin-number" class="mt-4">
+                <div id="add-money-pin-container" class="mt-4">
                     <label for="pin-number" class="ml-2 color-[#080808] font-medium">Pin Number</label>
                     <input type="password" placeholder="Enter 4 digit pin number" id="pin-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <!-- login button -->
-                <button id="add-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                <button type="button" id="add-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
                     Add Money
                 </button>
             </form>
@@ -131,27 +132,27 @@
 
     <!--=========================== cash out section  start =========================-->
     <section id="cash-out-section" style="display: none"
-        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        class="toggle-section w-full max-w-[500px] mx-auto bg-[#ffff] shadow mt-7">
         <h1 class="text-left ml-3 text-2xl font-bold">Cash Out</h1>
         <div id="cash-out" class="flex flex-col justify-center items-center">
-            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+            <form class="rounded-2xl bg-[#FFFFFF] w-full max-w-md p-5">
                 <div id="agent-account-number" class="mt-4">
                     <label for="account-number" class="ml-2 color-[#080808] font-medium">Agent Number</label>
                     <input type="text" placeholder="Enter 11 digit account number" id="cashout-agent-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
-                <div id="amount-witdraw-number" class="mt-4">
+                <div id="withdraw-container" class="mt-4">
                     <label for="add-withdraw-number" class="ml-2 color-[#080808] font-medium">Amount</label>
                     <input type="number" placeholder="Enter Amount to Withdraw" id="cashout-withdraw-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
-                <div id="account-pin-number" class="mt-4">
+                <div id="cashout-pin-container" class="mt-4">
                     <label for="pin-number" class="ml-2 color-[#080808] font-medium">Pin Number</label>
                     <input type="password" placeholder="Enter 4 digit pin number" id="cashout-pin-number"
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <!-- withdraw money button -->
-                <button id="withdraw-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                <button type="button" id="withdraw-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
                     Withdraw Money
                 </button>
             </form>
@@ -160,10 +161,10 @@
     <!--========================= cash out section end ============================== -->
     <!-- ============================ transfer section start ===============================-->
     <section id="transfer-section" style="display: none"
-        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        class="toggle-section w-full max-w-[500px] mx-auto bg-[#ffff] shadow mt-7">
         <h1 class="text-left ml-3 text-2xl font-bold">Transfer Money</h1>
         <div id="transfer-money-section" class="flex flex-col justify-center items-center">
-            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+            <form class="rounded-2xl bg-[#FFFFFF] w-full max-w-md p-5">
                 <div id="transfer-account-number" class="mt-4">
                     <label for="transfer-input-account-number" class="ml-2 color-[#080808] font-medium">User Account
                         Number</label>
@@ -181,7 +182,7 @@
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <!-- transfer money button -->
-                <button id="transfer-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                <button type="button" id="transfer-money-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
                     Send Now
                 </button>
             </form>
@@ -190,10 +191,10 @@
     <!--============================= transfer section end ===================================-->
     <!--=========================== get bonous section start ============================== -->
     <section id="get-bonus-section" style="display: none"
-        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        class="toggle-section w-full max-w-[500px] mx-auto bg-[#ffff] shadow mt-7">
         <h1 class="text-left ml-3 text-2xl font-bold">Get Bonus</h1>
         <div id="bonus-description-section" class="flex flex-col justify-center items-center">
-            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+            <form class="rounded-2xl bg-[#FFFFFF] w-full max-w-md p-5">
                 <div id="bonus-account-number" class="mt-4">
                     <label for="get-bonus-input-number" class="ml-2 color-[#080808] font-medium">Enter Bonus
                         Coupon</label>
@@ -201,7 +202,7 @@
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <!-- get bonus button -->
-                <button id="bonus-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                <button type="button" id="bonus-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
                     Get Bonus
                 </button>
             </form>
@@ -210,10 +211,10 @@
     <!-- ================================get bonous section end  ===============================-->
     <!--============================ pay bill section start ======================================-->
     <section id="pay-bill-section" style="display: none"
-        class="toggle-section w-[500px] mx-auto bg-[#ffff] shadow mt-7">
+        class="toggle-section w-full max-w-[500px] mx-auto bg-[#ffff] shadow mt-7">
         <h1 class="text-left ml-3 text-2xl font-bold">Pay Bill</h1>
         <div id="add-money-info" class="flex flex-col justify-center items-center">
-            <form class="rounded-2xl bg-[#FFFFFF] p-5">
+            <form class="rounded-2xl bg-[#FFFFFF] w-full max-w-md p-5">
                 <div>
                     <select id="bill-bank-info" class="select bg-[#F4F5F7] rounded-4xl mt-2">
                         <option>Select To Pay</option>
@@ -239,7 +240,7 @@
                         class="input input-lg bg-[#F4F5F7] rounded-4xl mt-2" />
                 </div>
                 <!-- pay bill button -->
-                <button id="bill-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
+                <button type="button" id="bill-button" class="btn btn-primary w-80 mt-5 rounded-4xl">
                     Pay Now
                 </button>
             </form>
@@ -249,7 +250,7 @@
     <!-----========================== transction section start ==============================---->
 
     <section id="transaction-section" style="display: none"
-        class="toggle-section w-[500px] mx-auto bg-[#ebe4e4] shadow mt-7">
+        class="toggle-section w-full max-w-[500px] mx-auto bg-[#ebe4e4] shadow mt-7">
         <!--- transction top part -->
         <div class="transction-header flex justify-between items-center mr-2 py-4">
             <h1 class="text-left ml-3 text-2xl font-bold">Transaction History</h1>
