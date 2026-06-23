@@ -114,6 +114,12 @@ document
         const addWitdrawNumber = getInputValueNumber("add-withdraw-number");
         const pinNumber = getInputValueNumber("pin-number");
 
+        // validation add money addWitdrawNumber number
+        if (addWitdrawNumber <= 0) {
+            alert("invalid number");
+            return;
+        }
+
         // cheek the valid account number when user try to enrty
         if (accountNumber.length < 11) {
             alert("please enter a valid account number must be 11 digit");
@@ -148,29 +154,36 @@ document
     .getElementById("withdraw-money-button")
     .addEventListener("click", function (event) {
         event.preventDefault();
+
         // call the funtction
         const agentAgentNumber = getValueWithoutParsIntNumber(
             "cashout-agent-number",
         );
         const cashOutWithdraw = getInputValueNumber("cashout-withdraw-number");
+        const availableBalance = getInnerTextValue("available-amount");
         const cashOutPinNumber = getInputValueNumber("cashout-pin-number");
 
-        // cheek agent number is valid and ensure they givien must be 11 digit
+        // validation cashout blance
+        if (cashOutWithdraw <= 0 || cashOutWithdraw > availableBalance) {
+            alert("Your blance is not avaible avaible.you withdraw heighst 45000 taka");
+            return;
+        }
+
+        // cheek agent number is valid and ensure they given must be 11 digit
         if (agentAgentNumber.length < 11) {
             alert("Enter must be 11 digit number");
             return;
         }
+
         // cheek pin number
         if (cashOutPinNumber !== cashoutInValidNumber) {
             alert("You type 5678 number .This is pin number");
             return;
         }
-        // call the function available-amount id
-        const totalavailbleCashoutAmount = getInnerTextValue("available-amount");
 
         //  subtraction to the total amount and cashout withdraw amount
         const newAvailbleCashoutNumber =
-            totalavailbleCashoutAmount - cashOutWithdraw;
+            availableBalance - cashOutWithdraw;
         setInnerText(newAvailbleCashoutNumber);
         // transction dainamic setting
         const data = {
@@ -180,6 +193,7 @@ document
         transactionData.push(data);
     });
 // --------------------------cash out section end--------------------------
+
 // --------------------------- get bonus start ----------------------------
 const validCoupon = "PAYOO100";
 document.getElementById("bonus-button")
@@ -261,6 +275,7 @@ document.getElementById("bill-button")
         alert("Bill Payment Successful");
     });
 // --------------------------- pay bill end --------------------------------
+
 // -------------------------transction section start -----------------------
 document
     .getElementById("transaction-button")
@@ -292,4 +307,4 @@ document
             transactionContainer.appendChild(div);
         }
     });
-
+// -------------------------transction section end -----------------------
